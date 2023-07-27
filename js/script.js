@@ -1,5 +1,5 @@
 import { PRODUCTS, USERS } from "./db.js";
-console.log(PRODUCTS)
+// console.log(PRODUCTS)
 
 const getStorageUsers = () => {
     localStorage.getItem('userName') 	? JSON.parse(localStorage.getItem('userName'))
@@ -13,8 +13,8 @@ const storageUsers = getStorageUsers(),
 const getSection = (item) =>
 	 {
 		 let categoriesWrap = document.querySelector(`#categoriesContainer`),
-			 categories = document.createElement(`section`);
-			 categoriesLabel = document.createElement(`h2`);
+			 categories = document.createElement(`section`),
+			 categoriesLabel = document.createElement(`h2`),
 			 categoriesContainer = document.createElement(`div`);
 			 
 			 categories.className = `category`;
@@ -72,20 +72,9 @@ const renderItems = ({id,title,img,price,sale,salePercent,categories}) =>
 			 ImgProd = document.createElement (`img`),
 			 nameItem = document.createElement (`p`);
 	 
-			 if (sale){
-				 saleItem = document.createElement (`div`);
-				 saleOld = document.createElement (`span`);
-				 saleProc = document.createElement (`span`);
-				 saleItem.className = `product__sale`;
-				 saleOld.className = `product__sale--old`;
-				 saleProc.className = `product__sale--percent`;
-				 saleOld.innerHTML =`${price}`;
-				 saleProc.innerHTML = `-${salePercent}%`;
-				 }
-	 
 		 let	priceItem = document.createElement (`div`),
-			 btnCart = document.createElement (`button`);
-			 priceTotal = document.createElement (`div`);
+			 	btnCart = document.createElement (`button`),
+			 	priceTotal = document.createElement (`div`);
 	 
 			 product.className = `product`;
 			 btnItem.className = `product__favourite`;
@@ -155,7 +144,16 @@ const renderItems = ({id,title,img,price,sale,salePercent,categories}) =>
 			 btnItem.append(ImgLike);
 			 product.append(ImgProd);
 			 product.append(nameItem);
+
 			 if (sale){
+				let saleItem = document.createElement (`div`),
+				 	saleOld = document.createElement (`span`),
+				 	saleProc = document.createElement (`span`);
+				 saleItem.className = `product__sale`;
+				 saleOld.className = `product__sale--old`;
+				 saleProc.className = `product__sale--percent`;
+				 saleOld.innerHTML =`${price}`;
+				 saleProc.innerHTML = `-${salePercent}%`;
 				 product.append(saleItem);
 				 saleItem.append(saleOld);
 				 saleItem.append(saleProc);
