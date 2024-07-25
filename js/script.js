@@ -282,7 +282,7 @@ if(document.querySelector(`#userInfo`))
 		location.reload();
 	})
 }
-
+console.log(PRODUCTS)
 //FOR info page -delete BTN
 if (document.querySelector(`#deleteAcc`))
 {
